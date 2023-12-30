@@ -1,4 +1,4 @@
-# flutter_provider_experiment
+# Flutter Provider Experiment
 
 A Flutter project to explore State management with Provider.
 

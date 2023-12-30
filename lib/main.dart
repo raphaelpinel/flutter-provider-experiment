@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_provider_experiment/bottom_container.dart';
+import 'package:flutter_provider_experiment/middle_container.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,7 +9,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,28 +19,17 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: const Text('Title'),
+          title: const Text('Count:'),
       ),
-        body: Center(
+        body: const Center(
           child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-                'counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+              MiddleContainer(), BottomContainer()
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-          shape: const CircleBorder(),
-          onPressed: () {},
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      
       ),
     );
   }

@@ -7,6 +7,9 @@ class BottomContainer extends StatelessWidget {
   const BottomContainer({super.key});
   @override
   Widget build(BuildContext context) {
+    final counter = context.read<CountModel>();
+    // or
+    // final counter = Provider.of<CountModel>(context);
     return Padding(
       padding: const EdgeInsets.only(top: 40, bottom: 20),
       child: Row(
@@ -15,17 +18,17 @@ class BottomContainer extends StatelessWidget {
           CounterButton(
             tooltip: 'Decrement',
             iconData: Icons.exposure_minus_1,
-            onPressed: Provider.of<CountModel>(context).decrement,
+            onPressed: counter.decrement,
           ),
           CounterButton(
             tooltip: 'Increment',
             iconData: Icons.exposure_plus_1,
-            onPressed: Provider.of<CountModel>(context).increment,
+            onPressed: counter.increment,
           ),
           CounterButton(
             tooltip: 'Reset',
             iconData: Icons.exposure_zero,
-            onPressed: Provider.of<CountModel>(context).reset,
+            onPressed: counter.reset,
           ),
         ],
       ),

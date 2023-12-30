@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_provider_experiment/bottom_container.dart';
 import 'package:flutter_provider_experiment/middle_container.dart';
+import 'package:flutter_provider_experiment/models/count.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (context) => CountModel(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -19,7 +22,11 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-          title: const Text('Count:'),
+          title: Consumer<CountModel>(
+            builder: (context, someName, child) {
+              return Text('Count x 2: ${someName.count2}');
+            },
+          ),
       ),
         body: const Center(
           child: Column(
